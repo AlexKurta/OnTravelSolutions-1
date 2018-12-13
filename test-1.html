@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Test 1</title>
+        <meta charset="UTF-8">
+        <style> 
+            .red {
+                color: red;
+            }       
+        </style>
+    </head>
+    <body>
+        <input type="text" name="name" class="js_name" value="Xxxx">
+        <script>            
+            const input = document.getElementsByTagName('input')[0],            
+                  originalValue = input.value; // сохраним начальное значение поля для дальнейшего сравнения 
+
+            input.addEventListener('input', changeClass);
+            
+            function changeClass(e) {
+                const target = e.target,
+                      inputValue = target.value,
+                      classList = target.classList;
+                      
+                // по изменению в поле сравниваем текущее значение с начальным и добавляем/удаляем класс
+                inputValue === originalValue ? classList.remove('red') : classList.add('red');                             
+            }            
+        </script>
+    </body>
+</html>
